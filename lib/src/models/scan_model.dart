@@ -1,5 +1,10 @@
 import "package:latlong/latlong.dart" as latLng;
 class ScanModel {
+
+    int id;
+    String tipo;
+    String valor;
+
     ScanModel({
         this.id,
         this.tipo,
@@ -11,10 +16,6 @@ class ScanModel {
         this.tipo = 'geo';
       }
     }
-
-    int id;
-    String tipo;
-    String valor;
 
     factory ScanModel.fromJson(Map<String, dynamic> json) => ScanModel(
         id: json["id"],

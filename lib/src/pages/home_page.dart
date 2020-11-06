@@ -46,19 +46,19 @@ class _HomePageState extends State<HomePage> {
    //https://www.google.com
 
 
-    dynamic futureString ='https://www.google.com';
-    // try {
-    //   futureString = await BarcodeScanner.scan();
-    // }catch(e){
-    //   futureString=e.toString();
-    // }
+    dynamic futureString;
+    try {
+      futureString = await BarcodeScanner.scan();
+    }catch(e){
+      futureString = e.toString();
+    }
     if ( futureString != null ){
-      final scan = ScanModel(valor: futureString);
+      final scan = ScanModel(valor: futureString.rawContent);
       scanBloc.agregaScan(scan);
 
-      final scan2 = ScanModel(valor: 'geo:-0.28779051308985115,-78.56930151423343');
-      scanBloc.agregaScan(scan2);
-      utils.abrirScan(context, scan2);
+      // final scan2 = ScanModel(valor: 'geo:-0.28779051308985115,-78.56930151423343');
+      // scanBloc.agregaScan(scan2);
+      utils.abrirScan(context, scan);
     }
  }
 
